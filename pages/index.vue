@@ -6,5 +6,10 @@
     >
       vue-chart
     </v-btn>
+    <v-btn
+      to="/dounut"
+    >
+      dounut
+    </v-btn>
   </div>
 </template>

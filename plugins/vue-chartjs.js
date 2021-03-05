@@ -1,21 +1,17 @@
-import Vue from 'vue'
-import { Bar } from 'vue-chartjs'
+import Vue from 'vue';
+import { Doughnut, mixins } from 'vue-chartjs';
+const { reactiveProp } = mixins;
 
-Vue.component('BarChart', {
-  extends: Bar,
+Vue.component('doughnut-chart', {
+  extends: Doughnut,
+  mixins: [reactiveProp],
   props: {
-    chartdata: {
-      type: Object
-    },
     options: {
       type: Object,
-      default: () => ({
-        responsive: true,
-        maintainAspectRatio: false
-      })
-    }
+      default: () => {},
+    },
   },
-  mounted () {
-    this.renderChart(this.chartdata, this.options)
+  mounted() {
+    this.renderChart(this.chartData, this.options)
   }
 })
